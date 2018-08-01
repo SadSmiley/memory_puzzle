@@ -31,10 +31,10 @@
 <div class="board" *ngIf="submitted">
   <table class="table table-dark table-bordered text-center" style="margin-bottom: 0;">
     <tbody>
-      <tr *ngFor="let data of card">
-        <td *ngFor="let data2 of data" style="padding: 0;">
-          <div style="padding-top: 100%; width: 100%; position: relative;">
-            <span style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; top: 50%; transform: translateY(-50%); font-size: 14px; line-height: 14px; font-weight: 700; height: 14px;">5</span>
+      <tr *ngFor="let data of card; let i = index">
+        <td *ngFor="let data2 of data; let i2 = index" style="padding: 0;">
+          <div (click)="flip_it(i, i2)" style="padding-top: 100%; width: 100%; position: relative;">
+            <span *ngIf="data2.flipped == 1" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; top: 50%; transform: translateY(-50%); font-size: 14px; line-height: 14px; font-weight: 700; height: 14px;">{{ data2.value }}</span>
           </div>
         </td>
       </tr>
